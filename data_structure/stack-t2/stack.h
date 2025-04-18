@@ -7,9 +7,9 @@ typedef struct stack_s{
   int top;
 }stack_s;
 
-void init(stack_s);
-int is_full(stack_s);
-int is_empty(stack_s);
-void push(stack_s, elem_t);
-elem_t pop(stack_s);
-elem_t peek(stack_s);
+void init(stack_s *sp);
+int is_full(stack_s *sp);
+int is_empty(stack_s *sp);
+void push(stack_s *sp, elem_t e);
+elem_t pop(stack_s *sp);
+elem_t peek(stack_s *sp);

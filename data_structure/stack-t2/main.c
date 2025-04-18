@@ -45,12 +45,6 @@ int main()
             printf("프로그램을 종료합니다.\n");
             return 0;
         }
-        printf("계속 진행하시겠습니까? (y/n): ");
-    scanf("%s", yn);
-    if (yn[0] == 'n' || yn[0] == 'N') {
-        printf("프로그램을 종료합니다.\n");
-        return 0;
-    }
     }
     printf("성공\n");
 }

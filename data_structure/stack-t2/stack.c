@@ -15,9 +15,9 @@ int is_empty(stack_s *sp){
 void push(stack_s *sp, elem_t e){
   if (is_full(sp)) {
     printf("스택이 가득참");
-    return 0;
+    return;
   }
-  return sp->data[sp->top++] = e;
+  sp->data[sp->top++] = e;
 }
 elem_t pop(stack_s *sp){
   if (is_empty(sp)){
@@ -28,4 +28,3 @@ elem_t pop(stack_s *sp){
 elem_t peek(stack_s *sp) {
   return sp->data[sp->top -1];
 }
-
