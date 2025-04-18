@@ -66,19 +66,19 @@ void check_next(stack_s* sp, elem_t here)
     int r = here.r;
     int c = here.c;
 
-    push_loc(sp,r-1,c);
-    push_loc(sp,r,c-1);
-    push_loc(sp,r+1,c);
-    push_loc(sp,r,c+1);
+    push_loc(sp, r-1,c);
+    push_loc(sp, r,c-1);
+    push_loc(sp, r+1,c);
+    push_loc(sp, r,c+1);
 }
 
 void push_loc(stack_s* sp, int r, int c)
 {
-    if (r < 0 || c < 0) return;
-    if (r >= maze_size || c >= maze_size) return;
-    if (maze[r][c] == WALL) return;
-    if (maze[r][c] == VISIT) return;
-    elem_t temp = { r,c };
+    if(r < 0 || c < 0) return;
+    if(r >= MAX_SIZE || c >= MAX_SIZE) return;
+    if(maze[r][c] == WALL) return;
+    if(maze[r][c] == VISIT) return;
+    elem_t temp = {r,c};
     push(sp, temp);
 }
 
