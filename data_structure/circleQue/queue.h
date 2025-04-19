@@ -1,6 +1,6 @@
 #pragma once
 #include "elem.h"
-#define MAX_SIZE 20
+#define MAX_SIZE 5
 
 
 typedef struct que{
@@ -11,6 +11,6 @@ typedef struct que{
 void init(que_t *qu);
 int is_full(que_t *qu);
 int is_empty(que_t *qu);
-void enqueue(que_t *qu,elem_t);
-elem_t dequeue(que_t *qu);
-elem_t peek(que_t*qu);
+void enque(que_t *qu,elem_t);
+elem_t deque(que_t *qu);
+void print_que(que_t *qu);
