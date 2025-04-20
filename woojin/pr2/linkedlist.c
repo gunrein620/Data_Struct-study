@@ -1,6 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "linkedlist.h"
+elem_t err_elem = -9999;
+
+void print_list(node_t* hdr)
+{
+    node_t* p = hdr;
+    while (p != NULL) {
+        printf("%3d ->", p->data);
+        p = p->next;
+    }
+    printf("\n");
+}
+
+node_t* find(node_t* hdr, elem_t e)
+{   
+    node_t* p = hdr;
+    while (p != NULL && p->data == e)
+        p = p->next;
+    return p;
+}
 
 node_t* insert_first(node_t* hdr, elem_t e)
 {
@@ -16,31 +35,13 @@ void insert_after(node_t* hdr, node_t* prev, elem_t e)
     prev->next = p;
 }
 
-void print_list(node_t* hdr)
-{
-    node_t* p = hdr;
-    while (p != NULL)
-    {
-        printf("3%d -> ", p->data);
-        p = p->next;
-    }
-}
-
-node_t* find(node_t* hdr, elem_t e)
-{
-    node_t* p = hdr;
-    while (p != NULL && p->data != e)
-        p = p->next;
-    return p;
-}
-
 node_t* find_prev(node_t* hdr, elem_t e)
 {
     node_t* p = hdr;
     if (p == NULL) return p;
     while (p->next != NULL && p->next->data != e)
         p = p->next;
-    if (p->next == NULL) return NULL;
+    if(p->next == NULL) return NULL;
     return p;
 }
 
@@ -48,10 +49,10 @@ node_t* delete_val(node_t* hdr, elem_t e)
 {
     node_t* p;
     if (hdr == NULL) return hdr;
-    if (hdr->data == e) {
-        return delete_first(hdr);
-    }
+    if (hdr->data == e)
+        return delete_first(p);
     p = find_prev(hdr, e);
+    
     if (p == NULL) return hdr;
     delete_after(hdr, p);
     return hdr;
@@ -75,7 +76,8 @@ void delete_after(node_t* hdr, node_t* prev)
 void free_list(node_t* hdr)
 {
     node_t* ptr = hdr, *p;
-    while (ptr != NULL) {
+    while (ptr != NULL)
+    {
         p = ptr->next;
         free(ptr);
         ptr = p;
@@ -85,7 +87,8 @@ void free_list(node_t* hdr)
 node_t* new_node(elem_t e)
 {
     node_t* p = (node_t*)malloc(sizeof(node_t));
-    p->data = e;
+
     p->next = NULL;
+    p->data = e;
     return p;
 }

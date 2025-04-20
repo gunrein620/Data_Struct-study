@@ -25,5 +25,4 @@ void enqueue(queue_t* q, elem_t e);
 // 삭제 함수
 elem_t dequeue(queue_t* q);
 
-
 elem_t peek(queue_t* q);

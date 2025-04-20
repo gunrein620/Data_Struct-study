@@ -13,12 +13,12 @@ void main(void)
         print_queue(&q);
         scanf("%s", op);
 
-        if (op[0] == '+') 
+        if (op[0] == '+')
         {
             scanf("%d", &val);
             enqueue(&q, val);
         } 
-        else if (op[0] == '-') 
+        else if (op[0] == '-')
         {
             val = dequeue(&q);
         }
