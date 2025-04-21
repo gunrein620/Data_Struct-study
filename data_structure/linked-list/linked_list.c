@@ -33,17 +33,25 @@ void insert_after(node_t* hdr, node_t* prev, elem_t e){
   prev->next = p;
 }
 
-node_t* delete_val(node_t* hdr, elem_t e){
+node_t* find_prev(node_t* hdr, elem_t e){
   node_t* p = hdr;
-  if(e == hdr->data)
-    delete_frist(hdr); return;
-    while (p->data != e)
-    {
-      if (p->next == NULL) return hdr;
+  if (p == NULL) return p;
+  while (p->next != NULL && p->next->data !=e)
       p = p->next;
-    }
-    delete_after(hdr, p);
-    return hdr;
+  if(p->next == NULL) return NULL;
+  return p;    
+}
+
+node_t* delete_val(node_t* hdr, elem_t e){
+  node_t* p;
+  if(hdr == NULL) return hdr;
+  if(hdr->data == e)
+    return delete_frist(p);
+  p = find_prev(hdr, e);
+  
+  if (p == NULL) return hdr;
+  delete_after(hdr, p);
+  return hdr;
 }
 
 node_t* delete_frist(node_t* hdr){
