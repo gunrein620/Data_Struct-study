@@ -4,11 +4,14 @@
 err_elem = -9999;
 
 node_t* find(node_t* hdr, elem_t e){
-  if (hdr == NULL) return hdr;
-  node_t *p = hdr;
-  while (p != NULL && p->data == e)
+  node_t* p = hdr;
+  while (p != NULL)
+  {
+    if (p->data == e)
+    break;
     p = p->next;
-  return hdr;
+  }
+  return p;
 }
 void print_list(node_t* hdr){
   node_t *p = hdr;
